@@ -17,6 +17,7 @@
                                     name="keywords"
                                     class="form-control"
                                     placeholder="Keyword (Pool, Garage, etc)"
+                                    value="{{ value.keywords }}"
                                 />
                             </div>
 
@@ -27,6 +28,7 @@
                                     name="city"
                                     class="form-control"
                                     placeholder="City"
+                                    value="{{ values.city }}"
                                 />
                             </div>
 
@@ -35,7 +37,11 @@
                                 <select name="state" class="form-control">
                                     <option selected="true" disabled="disabled">State (All)</option>
                                     {% for key, value in state_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                        <option value="{{ key }}"
+                                        {% if key == values.state %}
+                                            selected
+                                        {% endif %}
+                                        >{{ value }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -49,7 +55,11 @@
                                     Bedrooms (Any)
                                     </option>
                                     {% for key, value in bedroom_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                        <option value="{{ key }}"
+                                        {% if key == values.bedrooms %}
+                                            selected
+                                        {% endif %}
+                                        >{{ value }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -59,7 +69,11 @@
                                     Max Price (All)
                                     </option>
                                     {% for key, value in price_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                        <option value="{{ key }}"
+                                        {% if key == values.price %}
+                                            selected
+                                        {% endif %}
+                                        >{{ value }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
